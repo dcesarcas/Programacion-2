@@ -1,0 +1,148 @@
+Imports System
+
+Module Program
+    Sub Main(args As String())
+        Dim a As Double
+        Dim b As Double
+        Dim c As Double
+        Dim prom As Double
+        Dim total As Double
+        Dim opcion As Char = ""
+
+        While opcion <> "z"
+            Console.WriteLine("Primero......(1)")
+            Console.WriteLine("Segundo.....(2)")
+            Console.WriteLine("Tercero..(3)")
+            Console.WriteLine("Cuarto.....(4)")
+            Console.WriteLine("Quinto...(5)")
+            Console.WriteLine("Salir...(z)")
+            Try
+                opcion = Console.ReadKey.KeyChar
+                Console.Clear()
+                Select Case opcion
+                    Case "1"
+                        Console.WriteLine("Ingrese numero a: ")
+                        a = Console.ReadLine()
+                        Console.WriteLine("Ingrese numero b: ")
+                        b = Console.ReadLine()
+                        Console.WriteLine("Ingrese numero c: ")
+                        c = Console.ReadLine()
+                        If a > b And a > c Then
+                            Console.WriteLine(a)
+                            If b > c Then
+                                Console.WriteLine(b)
+                                Console.WriteLine(c)
+                            Else
+                                Console.WriteLine(c)
+                                Console.WriteLine(b)
+                            End If
+
+                        Else
+                            If b > a And b > c Then
+                                Console.WriteLine(b)
+                                If a > c Then
+                                    Console.WriteLine(a)
+                                    Console.WriteLine(c)
+                                Else
+                                    Console.WriteLine(c)
+                                    Console.WriteLine(a)
+                                End If
+                            End If
+                            If c > a And c > b Then
+                                Console.WriteLine(c)
+                                If a > b Then
+                                    Console.WriteLine(a)
+                                    Console.WriteLine(b)
+                                Else
+                                    Console.WriteLine(b)
+                                    Console.WriteLine(a)
+                                End If
+                            End If
+                        End If
+                    Case "2"
+                        Console.WriteLine("Ingrese numero a: ")
+                        a = Console.ReadLine()
+                        Console.WriteLine("Ingrese numero b: ")
+                        b = Console.ReadLine()
+                        Console.WriteLine("Ingrese numero c: ")
+                        c = Console.ReadLine()
+                        If a = b And a = c Then
+                            Console.WriteLine("Es un triangulo equilatero")
+                        Else
+                            If a = b And a <> c Then
+                                Console.WriteLine("Es un triangulo isosceles")
+                            Else
+                                If a <> b And a = c Then
+                                    Console.WriteLine("Es un triangulo isosceles")
+                                Else
+                                    If a <> b And b = c Then
+                                        Console.WriteLine("Es un triangulo isosceles")
+                                    Else
+
+                                        Console.WriteLine("Es un triangulo escaleno")
+
+                                    End If
+                                End If
+                            End If
+                        End If
+                    Case "3"
+                        Console.WriteLine("Ingrese numero: ")
+                        a = Console.ReadLine()
+                        For i = 0 To a Step 1
+                            Console.WriteLine(i)
+                            total = total + i
+                        Next
+                        Console.WriteLine("Suma de numeros: ")
+                        Console.WriteLine(total)
+                        If total Mod 2 = 0 Then
+                            Console.WriteLine("Es par")
+                        Else
+                            Console.WriteLine("Es impar")
+                        End If
+                    Case "4"
+                        Console.WriteLine("Ingrese numero: ")
+                        a = Console.ReadLine()
+                        If a > 0 Then
+                            For i = 0 To a Step 2
+                                Console.WriteLine(i)
+                            Next
+                        Else
+                            For i = 0 To a Step -0.5
+                                Console.WriteLine(i)
+                            Next
+                        End If
+                    Case "5"
+                        Console.WriteLine("Ingrese nota matematicas: ")
+                        a = Console.ReadLine()
+                        Console.WriteLine("Ingrese nota fisica: ")
+                        b = Console.ReadLine()
+                        Console.WriteLine("Ingrese nota programacion: ")
+                        c = Console.ReadLine()
+                        prom = (a + b + c) / 3
+                        If prom < 61 Then
+                            Console.WriteLine("Promedio: " & prom)
+                            Console.WriteLine("Reprobado")
+                        Else
+                            If prom >= 61 And prom <= 80 Then
+                                Console.WriteLine("Promedio: " & prom)
+                                Console.WriteLine("Regular")
+                            Else
+                                Console.WriteLine("Promedio: " & prom)
+                                Console.WriteLine("Excelente")
+                            End If
+
+                        End If
+                    Case "z"
+                        Console.Clear()
+                        Console.WriteLine("Gracias por utilizar nuestra plataforma")
+
+                End Select
+            Catch ex As Exception
+                Console.WriteLine(ex.Message)
+            End Try
+            If opcion <> "z" Then Console.WriteLine("Pulse cualquier tecla para regresar al menu")
+            Console.ReadKey()
+
+        End While
+    End Sub
+End Module
