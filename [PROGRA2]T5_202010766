@@ -1,0 +1,22 @@
+Imports System
+
+Module Program
+    Sub Main(args As String())
+        Dim a As Integer
+        Dim n As Integer
+        Dim s As Integer
+        Console.WriteLine("Ingrese numero: ")
+        a = Console.ReadLine()
+        n = 1
+        For i = 1 To a Step 1
+
+            n = n * i
+        Next
+        Console.WriteLine("Factorial: " & n)
+        For x = 0 To n Step 4
+            Console.WriteLine(x)
+            s = s + 1
+        Next
+        Console.WriteLine("Hay " & s & " multiplos de 4")
+    End Sub
+End Module
